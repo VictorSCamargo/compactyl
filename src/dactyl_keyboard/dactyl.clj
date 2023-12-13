@@ -31,7 +31,10 @@
 ;; Shape parameters ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
-(def nrows 5)
+; ToDo add diode hole
+; ToDo review thumb angle
+
+(def nrows 4)
 (def ncols 6)
 
 (def column-curvature (deg2rad 17))                         ; 15                        ; curvature of the columns
