@@ -34,6 +34,8 @@
 ; ToDo add diode hole
 ; ToDo review thumb angle
 
+(def ROUND-RES 30)
+
 (def nrows 4)
 (def ncols 6)
 
@@ -178,6 +180,39 @@
                                  (translate [ hotswap-cutout-led-x-offset
                                               hotswap-cutout-led-y-offset
                                               hotswap-cutout-z-offset]))
+
+        diode-wire-dia 0.75
+        diode-wire-channel-depth (* 1.5 diode-wire-dia)
+        diode-body-size 1.95
+        diode-corner-hole (->> (cylinder diode-wire-dia (* 2 hotswap-z))
+                              (with-fn ROUND-RES)
+                              (translate [-6.55 -6.75 0]))
+        diode-end-hole    (->> (cylinder (/ diode-body-size 2) (* 2 hotswap-z))
+                              (with-fn ROUND-RES)
+                              (translate [-6.25 -3.75 0]))
+        diode-socket-hole-left (->> (cylinder diode-wire-dia hotswap-z)
+                                    (with-fn ROUND-RES)
+                                    (translate [-6.85 1.5 0]))
+        diode-channel-pin-left (->> (cube diode-wire-dia 2.5 diode-wire-channel-depth)
+                                    (rotate (deg2rad 10) [0 0 1])
+                                    (translate [-6.55  0 (* -0.49 diode-wire-channel-depth)])
+                               )
+        diode-socket-hole-right (->> (cylinder diode-wire-dia hotswap-z)
+                                    (with-fn ROUND-RES)
+                                    (translate [6.85 3.5 0]))
+        diode-channel-pin-right (->> (cube diode-wire-dia 6.5 diode-wire-channel-depth)
+                                    (rotate (deg2rad -5) [0 0 1])
+                                    (translate [6.55  0 (* -0.49 diode-wire-channel-depth)])
+                               )
+        diode-channel-wire (translate [-6.25 -5.75 (* -0.49 diode-wire-channel-depth)]
+                               (cube diode-wire-dia 2 diode-wire-channel-depth))
+        diode-body (translate [-6.25 -3.0 (* -0.49 diode-body-size)]
+                       (cube diode-body-size 4 diode-body-size))
+        diode-cutout (union diode-corner-hole
+                            diode-end-hole
+                            diode-channel-wire
+                            diode-body)
+              
         ; for the main axis
         main-axis-hole      (->> (cylinder (/ 4.1 2) 10)
                                  (with-fn 12))
@@ -198,6 +233,12 @@
                   minus-hole
                   friction-hole-left
                   friction-hole-right
+                  diode-cutout
+                  diode-socket-hole-left
+                  diode-channel-pin-left
+                  (mirror [1 0 0] diode-cutout)
+                  diode-socket-hole-right
+                  diode-channel-pin-right
                   hotswap-cutout-1
                   hotswap-cutout-2
                   hotswap-cutout-3
