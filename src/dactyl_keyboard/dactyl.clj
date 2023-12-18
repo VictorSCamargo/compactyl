@@ -56,8 +56,8 @@
 (def extra-width 2)                                       ; extra space between the base of keys; original= 2
 (def extra-height 1.7)                                      ; original= 0.5
 
-(def wall-z-offset -5)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
-(def wall-xy-offset 2)
+(def wall-z-offset -7)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
+(def wall-xy-offset 1)
 
 (def wall-thickness 1)                                      ; wall thickness parameter; originally 5
 
@@ -479,13 +479,13 @@
   (apply union
          (concat
            ;; Row connections
-            (for [column (range 0 (dec ncols))
-                  row (range 0 lastrow)]
-              (triangle-hulls
-                (key-place (inc column) row web-post-tl)
-                (key-place column row web-post-tr)
-                (key-place (inc column) row web-post-bl)
-                (key-place column row web-post-br)))
+           ; (for [column (range 0 (dec ncols))
+           ;       row (range 0 lastrow)]
+           ;   (triangle-hulls
+           ;     (key-place (inc column) row web-post-tl)
+           ;     (key-place column row web-post-tr)
+           ;     (key-place (inc column) row web-post-bl)
+           ;     (key-place column row web-post-br)))
 
            ;; Column connections
            (for [column columns
@@ -497,13 +497,13 @@
                (key-place column (inc row) web-post-tr)))
 
            ;; Diagonal connections
-            (for [column (range 0 (dec ncols))
-                  row (range 0 cornerrow)]
-              (triangle-hulls
-                (key-place column row web-post-br)
-                (key-place column (inc row) web-post-tr)
-                (key-place (inc column) row web-post-bl)
-                (key-place (inc column) (inc row) web-post-tl)))
+           ; (for [column (range 0 (dec ncols))
+           ;       row (range 0 cornerrow)]
+           ;   (triangle-hulls
+           ;     (key-place column row web-post-br)
+           ;     (key-place column (inc row) web-post-tr)
+           ;     (key-place (inc column) row web-post-bl)
+           ;     (key-place (inc column) (inc row) web-post-tl)))
            )))
 
 ;;;;;;;;;;;;
@@ -573,40 +573,40 @@ need to adjust for difference for thumb-z only"
 
 (def thumb-connectors
   (union
-     (->> (triangle-hulls                                         ; top two
-       (thumb-m-place web-post-tr)
-       (thumb-m-place web-post-br)
-       (thumb-r-place web-post-tl)
-       (thumb-r-place web-post-bl)) (color RED))
-     (->> (triangle-hulls                                         ; top two
-       (thumb-m-place web-post-tl)
-       (thumb-l-place web-post-tr)
-       (thumb-m-place web-post-bl)
-       (thumb-l-place web-post-br)
-       (thumb-m-place web-post-bl)) (color ORA))
+    ; (->> (triangle-hulls                                         ; top two
+    ;   (thumb-m-place web-post-tr)
+    ;   (thumb-m-place web-post-br)
+    ;   (thumb-r-place web-post-tl)
+    ;   (thumb-r-place web-post-bl)) (color RED))
+    ; (->> (triangle-hulls                                         ; top two
+    ;   (thumb-m-place web-post-tl)
+    ;   (thumb-l-place web-post-tr)
+    ;   (thumb-m-place web-post-bl)
+    ;   (thumb-l-place web-post-br)
+    ;   (thumb-m-place web-post-bl)) (color ORA))
     (->> (triangle-hulls                                         ; top two to the main keyboard, starting on the left
-       (key-place 2 lastrow web-post-br)
-       (key-place 3 lastrow web-post-bl)
-       (key-place 2 lastrow web-post-tr)
+      ; (key-place 2 lastrow web-post-br)
+      ; (key-place 3 lastrow web-post-bl)
+      ; (key-place 2 lastrow web-post-tr)
       (key-place 3 lastrow web-post-tl)
       (key-place 3 cornerrow web-post-bl)
       (key-place 3 lastrow web-post-tr)
       (key-place 3 cornerrow web-post-br)
-       (key-place 4 cornerrow web-post-bl)
+      ; (key-place 4 cornerrow web-post-bl)
       ) (color BLA))
     (->> (triangle-hulls
-       (key-place 1 cornerrow web-post-br)
+      ; (key-place 1 cornerrow web-post-br)
       (key-place 2 lastrow web-post-tl)
       (key-place 2 cornerrow web-post-bl)
       (key-place 2 lastrow web-post-tr)
       (key-place 2 cornerrow web-post-br)
-       (key-place 3 cornerrow web-post-bl)
+      ; (key-place 3 cornerrow web-post-bl)
       ) (color GRE))
-     (->> (triangle-hulls
-       (key-place 3 lastrow web-post-tr)
-       (key-place 3 lastrow web-post-br)
-       (key-place 3 lastrow web-post-tr)
-       (key-place 4 cornerrow web-post-bl)) (color CYA))
+    ; (->> (triangle-hulls
+    ;   (key-place 3 lastrow web-post-tr)
+    ;   (key-place 3 lastrow web-post-br)
+    ;   (key-place 3 lastrow web-post-tr)
+    ;   (key-place 4 cornerrow web-post-bl)) (color CYA))
     (hull                                                   ; between thumb m and top key
       (key-place 0 cornerrow (translate (wall-locate1 -1 0) web-post-bl))
       (thumb-m-place web-post-tr)
@@ -630,12 +630,12 @@ need to adjust for difference for thumb-z only"
       (thumb-r-place fat-web-post-tl)
       (thumb-r-place fat-web-post-tr)
       (key-place 1 cornerrow web-post-br)
-       (key-place 2 lastrow web-post-tl)
+      ; (key-place 2 lastrow web-post-tl)
       ) (color NBL))
     (->> (triangle-hulls
       (key-place 2 lastrow web-post-tl)
-       (thumb-r-place fat-web-post-tr)
-       (key-place 2 lastrow web-post-bl)
+      ; (thumb-r-place fat-web-post-tr)
+      ; (key-place 2 lastrow web-post-bl)
       (thumb-r-place fat-web-post-br)) (color PUR))
     (->> (triangle-hulls
       (thumb-r-place web-post-br)
