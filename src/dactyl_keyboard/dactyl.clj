@@ -37,7 +37,7 @@
 (def wall-z-offset -3)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
 (def wall-xy-offset 3)
 
-(def wall-thickness 1)                                      ; wall thickness parameter; originally 5
+(def wall-thickness 2)                                      ; wall thickness parameter; originally 5
 
 ; If you use Cherry MX or Gateron switches, this can be turned on.
 ; If you use other switches such as Kailh, you should set this as false
@@ -591,7 +591,7 @@
 (def usb-holder (mirror [-1 0 0]
                     (import "../things/holder v8.stl")))
 
-(def usb-holder (translate [-38.8 47.3 bottom-height] usb-holder))
+(def usb-holder (translate [-37.7 48.2 bottom-height] usb-holder))
 (def usb-holder-space
   (translate [0 0 (/ (+  bottom-height 8.2) 2)]
   (extrude-linear {:height (+ bottom-height 8.2) :twist 0 :convexity 0}
