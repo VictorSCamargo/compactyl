@@ -34,10 +34,10 @@
 (def extra-width 3)                                       ; extra space between the base of keys; original= 2
 (def extra-height -0.5)                                      ; original= 0.5
 
-(def wall-z-offset -1)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
-(def wall-xy-offset 1)
+(def wall-z-offset -3)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
+(def wall-xy-offset 3)
 
-(def wall-thickness 2)                                      ; wall thickness parameter; originally 5
+(def wall-thickness 1)                                      ; wall thickness parameter; originally 5
 
 ; If you use Cherry MX or Gateron switches, this can be turned on.
 ; If you use other switches such as Kailh, you should set this as false
