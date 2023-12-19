@@ -646,15 +646,15 @@
 
 (def usb-holder 
                 (mirror [-1 0 0]
-                    (import "../things/usb_holder.stl")
+                    (import "../things/usb_holder_w_reset.stl")
                 )
 )
-(def usb-holder-cutout-height 16.8)
+(def usb-holder-cutout-height 30.3)
 (def usb-holder-clearance 0.05)
-(def usb-holder-bottom-offset 0)
+(def usb-holder-bottom-offset 0.05)
 
 (def usb-holder-offset-coordinates (if (> nrows 4) [-39 57.2 usb-holder-bottom-offset] 
-                                                   [-41.5 50.4 usb-holder-bottom-offset]))
+                                                   [-40.1 48.2 usb-holder-bottom-offset]))
 (def usb-holder (translate usb-holder-offset-coordinates usb-holder))
 
 (def usb-holder-space
