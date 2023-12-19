@@ -56,8 +56,8 @@
 (def extra-width 2)                                       ; extra space between the base of keys; original= 2
 (def extra-height 1.7)                                      ; original= 0.5
 
-(def wall-z-offset -7)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
-(def wall-xy-offset 1)
+(def wall-z-offset -4)                                      ; -5                ; original=-15 length of the first downward-sloping part of the wall (negative)
+(def wall-xy-offset 3)
 
 (def wall-thickness 1)                                      ; wall thickness parameter; originally 5
 
@@ -540,9 +540,9 @@ need to adjust for difference for thumb-z only"
        (translate move)))
 
 ; convexer
-(defn thumb-r-place [shape] (thumb-place [14 -40 10] [-15 -10 5] shape)) ; right
-(defn thumb-m-place [shape] (thumb-place [10 -23 20] [-33 -15 -6] shape)) ; middle
-(defn thumb-l-place [shape] (thumb-place [6 -5 35] [-52.5 -25.5 -11.5] shape)) ; left
+(defn thumb-r-place [shape] (thumb-place [22 -40 10] [-15 -10 5] shape)) ; right
+(defn thumb-m-place [shape] (thumb-place [18 -23 20] [-33 -15 -6] shape)) ; middle
+(defn thumb-l-place [shape] (thumb-place [14 -5 35] [-52.5 -25.5 -11.5] shape)) ; left
 
 (defn thumb-layout [shape]
   (union
