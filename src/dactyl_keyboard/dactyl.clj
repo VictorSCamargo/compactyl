@@ -27,7 +27,7 @@
                                (>= column 4) [0 -10 6]
                                :else [0 0 0]))
 
-(def thumb-offsets [10 -5 1])
+(def thumb-offsets [9.5 -5 1])
 
 (def keyboard-z-offset 7)                                   ; controls overall height; original=9 with centercol=3; use 16 for centercol=2
 (def bottom-height 2)                                    ; plexiglass plate or printed plate
@@ -374,9 +374,9 @@
        (translate move)))
 
 ; convexer
-(defn thumb-r-place [shape] (thumb-place [14 -40 10] [-15 -10 5] shape)) ; right
-(defn thumb-m-place [shape] (thumb-place [10 -23 20] [-33 -15 -6] shape)) ; middle
-(defn thumb-l-place [shape] (thumb-place [6 -5 35] [-52.5 -25.5 -11.5] shape)) ; left
+(defn thumb-r-place [shape] (thumb-place [14 -22 10] [-16 -10 -1] shape)) ; right
+(defn thumb-m-place [shape] (thumb-place [10 -13 20] [-36 -15 -7.9] shape)) ; middle
+(defn thumb-l-place [shape] (thumb-place [6 -5 35] [-55.5 -25.5 -11.5] shape)) ; left
 
 (defn thumb-layout [shape]
   (union
