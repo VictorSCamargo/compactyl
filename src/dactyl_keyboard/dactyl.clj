@@ -651,7 +651,7 @@
 )
 (def usb-holder-cutout-height 30.3)
 (def usb-holder-clearance 0.05)
-(def usb-holder-bottom-offset 0.05)
+(def usb-holder-bottom-offset bottom-height)
 
 (def usb-holder-offset-coordinates (if (> nrows 4) [-39 57.2 usb-holder-bottom-offset] 
                                                    [-40.1 48.2 usb-holder-bottom-offset]))
