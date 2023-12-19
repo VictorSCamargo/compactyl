@@ -649,7 +649,8 @@
                     (import "../things/usb_holder_w_reset.stl")
                 )
 )
-(def usb-holder-cutout-height 30.3)
+(def usb-holder-cutout-height
+  (+ 30.3 bottom-height))
 (def usb-holder-clearance 0.05)
 (def usb-holder-bottom-offset bottom-height)
 
