@@ -567,12 +567,12 @@
          (translate (map + offset [(first position) (second position) (/ height 2)])))))
 
 (defn screw-insert-all-shapes [bottom-radius top-radius height]
-  (union (screw-insert 2 0 bottom-radius top-radius height [-4 4.5 bottom-height]) ; top middle
-         (screw-insert 0 1 bottom-radius top-radius height [-5.3 -8 bottom-height]) ; left
-         (screw-insert 0 lastrow bottom-radius top-radius height [-12 -7 bottom-height]) ;thumb
-         (screw-insert (- lastcol 1) lastrow bottom-radius top-radius height [10 13.5 bottom-height]) ; bottom right
-         (screw-insert (- lastcol 1) 0 bottom-radius top-radius height [10 5 bottom-height]) ; top right
-         (screw-insert 2 (+ lastrow 1) bottom-radius top-radius height [0 6.5 bottom-height]))) ;bottom middle
+  (union (screw-insert 2 0 bottom-radius top-radius height [-4 7.5 bottom-height]) ; top middle
+         (screw-insert 0 1 bottom-radius top-radius height [-8.3 -8 bottom-height]) ; left
+         (screw-insert 0 lastrow bottom-radius top-radius height [-12.6 -2 bottom-height]) ;thumb
+         (screw-insert (- lastcol 1) lastrow bottom-radius top-radius height [10 11.7 bottom-height]) ; bottom right
+         (screw-insert (- lastcol 1) 0 bottom-radius top-radius height [10 7.5 bottom-height]) ; top right
+         (screw-insert 2 (+ lastrow 1) bottom-radius top-radius height [0 4.5 bottom-height]))) ;bottom middle
 
 ; Hole Depth Y: 4.4
 (def screw-insert-height 4)
