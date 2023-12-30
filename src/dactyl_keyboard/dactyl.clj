@@ -510,7 +510,7 @@
 ;; Thumbs ;;
 ;;;;;;;;;;;;
 
-(def thumb-offsets (if (> nrows 4) [8 -5 8] [9 -5 4]))
+(def thumb-offsets (if (> nrows 4) [8 -5 8] [8 -5 4]))
 
 (def thumborigin
   (map + (key-position 1 cornerrow [(/ mount-width 2) (- (/ mount-height 2)) 0])
@@ -526,7 +526,7 @@ need to adjust for difference for thumb-z only"
                                        (- thumb-design-z plate-thickness) 
                                        0)) 
                             1.1))
-(def thumb-x-rotation-adjustment (if (> nrows 4) -12 -8))
+(def thumb-x-rotation-adjustment (if (> nrows 4) -12 -0))
 (defn thumb-place [rot move shape]
   (->> shape
        
@@ -540,9 +540,16 @@ need to adjust for difference for thumb-z only"
        (translate move)))
 
 ; convexer
-(defn thumb-r-place [shape] (thumb-place [22 -40 10] [-15 -10 5] shape)) ; right
-(defn thumb-m-place [shape] (thumb-place [18 -23 20] [-33 -15 -6] shape)) ; middle
-(defn thumb-l-place [shape] (thumb-place [14 -5 35] [-52.5 -25.5 -11.5] shape)) ; left
+;; (defn thumb-r-place [shape] (thumb-place [22 -40 10] [-15 -10 5] shape)) ; right
+;; (defn thumb-m-place [shape] (thumb-place [18 -23 20] [-33 -15 -6] shape)) ; middle
+;; (defn thumb-l-place [shape] (thumb-place [14 -5 35] [-52.5 -25.5 -11.5] shape)) ; left
+
+;; (defn thumb-r-place [shape] (thumb-place [14 -40 10] [-15 -10 5] shape)) ; right
+;; (defn thumb-m-place [shape] (thumb-place [10 -23 20] [-33 -15 -6] shape)) ; middle
+;; (defn thumb-l-place [shape] (thumb-place [6 -5 35] [-52.5 -25.5 -11.5] shape)) ; left
+(defn thumb-r-place [shape] (thumb-place [14 -22 10] [-16 -10 -1] shape)) ; right
+(defn thumb-m-place [shape] (thumb-place [10 -13 20] [-36 -15 -7.9] shape)) ; middle
+(defn thumb-l-place [shape] (thumb-place [6 -5 35] [-55.5 -25.5 -11.5] shape)) ; left
 
 (defn thumb-layout [shape]
   (union
@@ -760,7 +767,7 @@ need to adjust for difference for thumb-z only"
 (def screw-insert-bottom-offset 0)
 (def screw-insert-bc   (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-3.7 7 screw-insert-bottom-offset]))
 (def screw-insert-ml   (if (> nrows 4) [-8 -8 screw-insert-bottom-offset] [-8 -8 screw-insert-bottom-offset]))
-(def screw-insert-thmb (if (> nrows 4) [-27.5 -17.5 screw-insert-bottom-offset] [-7.5 -3.9 screw-insert-bottom-offset]))
+(def screw-insert-thmb (if (> nrows 4) [-27.5 -17.5 screw-insert-bottom-offset] [-11.4 4.1 screw-insert-bottom-offset]))
 (def screw-insert-br   (if (> nrows 4) [23.5 6.5 screw-insert-bottom-offset] [23.7 7 screw-insert-bottom-offset]))
 (def screw-insert-back (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-2.5 6.5 screw-insert-bottom-offset]))
 (def screw-insert-fc   (if (> nrows 4) [19.8 7 screw-insert-bottom-offset] [21 9.5 screw-insert-bottom-offset]))
