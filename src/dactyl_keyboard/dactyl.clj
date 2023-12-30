@@ -771,7 +771,7 @@ need to adjust for difference for thumb-z only"
 (def screw-insert-bottom-offset 0)
 (def screw-insert-bc   (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-1.7 7 screw-insert-bottom-offset]))
 (def screw-insert-ml   (if (> nrows 4) [-8 -8 screw-insert-bottom-offset] [-8 -8 screw-insert-bottom-offset]))
-(def screw-insert-thmb (if (> nrows 4) [-27.5 -17.5 screw-insert-bottom-offset] [-11.4 4.1 screw-insert-bottom-offset]))
+(def screw-insert-thmb (if (> nrows 4) [-27.5 -17.5 screw-insert-bottom-offset] [-11.7 -1 screw-insert-bottom-offset]))
 (def screw-insert-br   (if (> nrows 4) [23.5 6.5 screw-insert-bottom-offset] [23.7 7 screw-insert-bottom-offset]))
 (def screw-insert-back (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-2.5 6.5 screw-insert-bottom-offset]))
 (def screw-insert-fc   (if (> nrows 4) [19.8 7 screw-insert-bottom-offset] [23 9.5 screw-insert-bottom-offset]))
