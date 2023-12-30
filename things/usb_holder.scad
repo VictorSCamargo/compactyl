@@ -10,7 +10,7 @@
 reset_holder = true;
 
 usb_holder_x = 30.6;       // kinda adjustable
-usb_holder_y = 38.8;       // kinda adjustable
+usb_holder_y = 42.6;       // kinda adjustable
 usb_holder_z = reset_holder? 15 : 8.4;        // kinda adjustable
 
 
@@ -19,7 +19,7 @@ usb_holder_border = 1.5;   // kinda adjustable
 /* this combination of controller and usb_c dimensions 
  * friction fits both generations of elite-c controllers */
 usb_elite_c_x = 18.7;      // kinda adjustable
-usb_elite_c_y = 33.4;      // mostly adjustable
+usb_elite_c_y = 37.2;      // mostly adjustable
 usb_elite_c_side_cut = 6;  // adjustable
 
 usb_c_x = 9.3;             // adjustable
@@ -61,7 +61,7 @@ module basicShape() {
         translate ([-cut1_x, -cut1_y, 0]) {
           cube ([left_cut_x, (usb_holder_y - left_cut_y), 99], center=true);
         }
-        translate ([-cut2_x, -8.3, 0]) {
+        translate ([-cut2_x, -10.3, 0]) {
           cube ([bottom_cut_x, (usb_holder_y - 16.6), 99], center=true);
         }
         rotate (a=8, v=[1, 0, 0]) {
@@ -85,11 +85,11 @@ module notch() {
 
 module trrsCutouts() {
     trrs_floor = 1;
-    translate ([-9.2, 11.65, trrs_floor]) {
+    translate ([-9.2, 11.65+1.8, trrs_floor]) {
         cube ([trrs_x, trrs_y, usb_holder_z], center=true);
     }
     
-    trrsAngle_z_adjust = reset_holder? 0.5 : 4;
+    trrsAngle_z_adjust = reset_holder? -0.2 : 4;
     trrsAngle_z_factor = reset_holder? 0.5 : 1;
     translate ([-9.2, 11.65-trrs_y/3, trrsAngle_z_adjust * usb_holder_border]) {
         rotate (a=-72.0, v=[1, 0, 0]) {
