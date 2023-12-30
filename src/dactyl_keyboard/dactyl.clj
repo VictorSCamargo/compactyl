@@ -874,7 +874,7 @@ need to adjust for difference for thumb-z only"
 (def usb-holder-bottom-offset 0.05)
 
 (def usb-holder-offset-coordinates (if (> nrows 4) [-39 (if use_hotswap 57.3 55.5) usb-holder-bottom-offset] 
-                                                   [-40.2 (if use_hotswap 50.365 49.1) usb-holder-bottom-offset]))
+                                                   [-40 (if use_hotswap 50.365 49.1) usb-holder-bottom-offset]))
 (def usb-holder (translate usb-holder-offset-coordinates usb-holder))
 (def usb-holder-space
   (translate [0 0 (/ usb-holder-bottom-offset 2)]
