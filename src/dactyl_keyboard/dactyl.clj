@@ -510,7 +510,7 @@
 ;; Thumbs ;;
 ;;;;;;;;;;;;
 
-(def thumb-offsets (if (> nrows 4) [8 -5 8] [8 -5 4]))
+(def thumb-offsets (if (> nrows 4) [8 -5 8] [8 -5 6]))
 
 (def thumborigin
   (map + (key-position 1 cornerrow [(/ mount-width 2) (- (/ mount-height 2)) 0])
@@ -765,12 +765,12 @@ need to adjust for difference for thumb-z only"
 
 
 (def screw-insert-bottom-offset 0)
-(def screw-insert-bc   (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-3.7 7 screw-insert-bottom-offset]))
+(def screw-insert-bc   (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-1.7 7 screw-insert-bottom-offset]))
 (def screw-insert-ml   (if (> nrows 4) [-8 -8 screw-insert-bottom-offset] [-8 -8 screw-insert-bottom-offset]))
 (def screw-insert-thmb (if (> nrows 4) [-27.5 -17.5 screw-insert-bottom-offset] [-11.4 4.1 screw-insert-bottom-offset]))
 (def screw-insert-br   (if (> nrows 4) [23.5 6.5 screw-insert-bottom-offset] [23.7 7 screw-insert-bottom-offset]))
 (def screw-insert-back (if (> nrows 4) [-2.5 6.5 screw-insert-bottom-offset] [-2.5 6.5 screw-insert-bottom-offset]))
-(def screw-insert-fc   (if (> nrows 4) [19.8 7 screw-insert-bottom-offset] [21 9.5 screw-insert-bottom-offset]))
+(def screw-insert-fc   (if (> nrows 4) [19.8 7 screw-insert-bottom-offset] [23 9.5 screw-insert-bottom-offset]))
 (defn screw-insert-all-shapes [bottom-radius top-radius height]
   (union (->> (screw-insert 2 0 bottom-radius top-radius height screw-insert-bc) (color RED)) ; top middle
          (->> (screw-insert 0 1 bottom-radius top-radius height screw-insert-ml) (color PIN)) ; left
@@ -874,7 +874,7 @@ need to adjust for difference for thumb-z only"
 (def usb-holder-bottom-offset 0.05)
 
 (def usb-holder-offset-coordinates (if (> nrows 4) [-39 (if use_hotswap 57.3 55.5) usb-holder-bottom-offset] 
-                                                   [-41.5 (if use_hotswap 50.365 48.9) usb-holder-bottom-offset]))
+                                                   [-40.2 (if use_hotswap 50.365 49.1) usb-holder-bottom-offset]))
 (def usb-holder (translate usb-holder-offset-coordinates usb-holder))
 (def usb-holder-space
   (translate [0 0 (/ usb-holder-bottom-offset 2)]
