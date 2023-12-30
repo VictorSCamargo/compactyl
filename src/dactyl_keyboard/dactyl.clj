@@ -76,7 +76,7 @@
 (def keyswitch-height 13.8)                                   ;; Was 14.1, then 14.25
 (def keyswitch-width 13.9)
 (def plate-thickness 5)
-(def use_hotswap true)
+(def use_hotswap false)
 
 (def retention-tab-thickness 1.5)
 (def retention-tab-hole-thickness (- plate-thickness retention-tab-thickness))
